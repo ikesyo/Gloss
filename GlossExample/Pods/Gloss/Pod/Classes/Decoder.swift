@@ -208,7 +208,7 @@ public struct Decoder {
     - returns: Function decoding JSON to a value type
     */
     public static func forceDecode<T>(key: String) -> JSON -> T {
-        return { return decode(key)($0)! }
+        return { return Decoder.decode(key)($0)! }
     }
     
     /**
@@ -220,7 +220,7 @@ public struct Decoder {
     - returns: Function decoding JSON to a value type
     */
     public static func forceDecode<T: Decodable>(key: String) -> JSON -> T {
-        return { return decode(key)($0)! }
+        return { return Decoder.decode(key)($0)! }
     }
     
     /**
@@ -232,7 +232,7 @@ public struct Decoder {
     - returns: Function decoding JSON to a array
     */
     public static func forceDecodeArray<T: RawRepresentable>(key: String) -> JSON -> [T] {
-        return { return decodeArray(key)($0)! }
+        return { return Decoder.decodeArray(key)($0)! }
     }
     
     /**
@@ -244,7 +244,7 @@ public struct Decoder {
     - returns: Function decoding JSON to a array
     */
     public static func forceDecodeArray<T: Decodable>(key: String) -> JSON -> [T] {
-        return { return decodeArray(key)($0)! }
+        return { return Decoder.decodeArray(key)($0)! }
     }
     
     /**
@@ -256,7 +256,7 @@ public struct Decoder {
     - returns: Function decoding JSON to a date
     */
     public static func forceDecodeDate(key: String, dateFormatter: NSDateFormatter) -> JSON -> NSDate {
-        return { return decodeDate(key, dateFormatter: dateFormatter)($0)! }
+        return { return Decoder.decodeDate(key, dateFormatter: dateFormatter)($0)! }
     }
     
     /**
@@ -283,7 +283,7 @@ public struct Decoder {
     - returns: Function decoding JSON to an enum value
     */
     public static func forceDecodeEnum<T: RawRepresentable>(key: String) -> JSON -> T {
-        return { return decodeEnum(key)($0)! }
+        return { return Decoder.decodeEnum(key)($0)! }
     }
     
     /**
@@ -294,7 +294,7 @@ public struct Decoder {
     - returns: Function decoding JSON to a URL
     */
     public static func forceDecodeURL(key: String) -> JSON -> NSURL {
-        return { return decodeURL(key)($0)! }
+        return { return Decoder.decodeURL(key)($0)! }
     }
     
 }
