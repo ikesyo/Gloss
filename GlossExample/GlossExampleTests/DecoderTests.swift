@@ -36,12 +36,7 @@ class DecoderTests: XCTestCase {
         
         let testJSONPath: NSString = NSBundle(forClass: self.dynamicType).pathForResource("TestModel", ofType: "json")!
         let testJSONData: NSData = NSData(contentsOfFile: testJSONPath as String)!
-        
-        do {
-            try testJSON = NSJSONSerialization.JSONObjectWithData(testJSONData, options: NSJSONReadingOptions(rawValue: 0)) as? JSON
-        } catch {
-            print(error)
-        }
+        testJSON = NSJSONSerialization.JSONObjectWithData(testJSONData, options: NSJSONReadingOptions(rawValue: 0), error: nil) as? JSON
     }
     
     override func tearDown() {
@@ -174,13 +169,13 @@ class DecoderTests: XCTestCase {
     func testDecodeDate() {
         let result: NSDate? = Decoder.decodeDate("date", dateFormatter: TestModel.dateFormatter)(testJSON!)
         
-        let year: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Year, fromDate: result!).year
-        let month: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Month, fromDate: result!).month
-        let day: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Day, fromDate: result!).day
-        let hour: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Hour, fromDate: result!).hour
-        let minute: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Minute, fromDate: result!).minute
-        let second: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Second, fromDate: result!).second
-        let nanosecond: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Nanosecond, fromDate: result!).nanosecond
+        let year: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitYear, fromDate: result!).year
+        let month: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitMonth, fromDate: result!).month
+        let day: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitDay, fromDate: result!).day
+        let hour: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitHour, fromDate: result!).hour
+        let minute: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitMinute, fromDate: result!).minute
+        let second: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitSecond, fromDate: result!).second
+        let nanosecond: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitNanosecond, fromDate: result!).nanosecond
         
         XCTAssertTrue((year == 2015), "Decode NSDate should return correct value")
         XCTAssertTrue((month == 8), "Decode NSDate should return correct value")
@@ -194,12 +189,12 @@ class DecoderTests: XCTestCase {
     func testDecodeDateISO8601() {
         let result: NSDate? = Decoder.decodeDateISO8601("dateISO8601")(testJSON!)
         
-        let year: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Year, fromDate: result!).year
-        let month: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Month, fromDate: result!).month
-        let day: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Day, fromDate: result!).day
-        let hour: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Hour, fromDate: result!).hour
-        let minute: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Minute, fromDate: result!).minute
-        let second: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Second, fromDate: result!).second
+        let year: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitYear, fromDate: result!).year
+        let month: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitMonth, fromDate: result!).month
+        let day: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitDay, fromDate: result!).day
+        let hour: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitHour, fromDate: result!).hour
+        let minute: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitMinute, fromDate: result!).minute
+        let second: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitSecond, fromDate: result!).second
         
         XCTAssertTrue((year == 2015), "Decode NSDate should return correct value")
         XCTAssertTrue((month == 8), "Decode NSDate should return correct value")
@@ -338,13 +333,13 @@ class DecoderTests: XCTestCase {
     func testForceDecodeDate() {
         let result: NSDate = Decoder.forceDecodeDate("date", dateFormatter: TestModel.dateFormatter)(testJSON!)
         
-        let year: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Year, fromDate: result).year
-        let month: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Month, fromDate: result).month
-        let day: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Day, fromDate: result).day
-        let hour: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Hour, fromDate: result).hour
-        let minute: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Minute, fromDate: result).minute
-        let second: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Second, fromDate: result).second
-        let nanosecond: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Nanosecond, fromDate: result).nanosecond
+        let year: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitYear, fromDate: result).year
+        let month: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitMonth, fromDate: result).month
+        let day: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitDay, fromDate: result).day
+        let hour: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitHour, fromDate: result).hour
+        let minute: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitMinute, fromDate: result).minute
+        let second: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitSecond, fromDate: result).second
+        let nanosecond: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitNanosecond, fromDate: result).nanosecond
         
         XCTAssertTrue((year == 2015), "Decode NSDate should return correct value")
         XCTAssertTrue((month == 8), "Decode NSDate should return correct value")
@@ -358,12 +353,12 @@ class DecoderTests: XCTestCase {
     func testForceDecodeDateISO8601() {
         let result: NSDate = Decoder.forceDecodeDateISO8601("dateISO8601")(testJSON!)
         
-        let year: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Year, fromDate: result).year
-        let month: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Month, fromDate: result).month
-        let day: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Day, fromDate: result).day
-        let hour: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Hour, fromDate: result).hour
-        let minute: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Minute, fromDate: result).minute
-        let second: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.Second, fromDate: result).second
+        let year: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitYear, fromDate: result).year
+        let month: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitMonth, fromDate: result).month
+        let day: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitDay, fromDate: result).day
+        let hour: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitHour, fromDate: result).hour
+        let minute: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitMinute, fromDate: result).minute
+        let second: Int = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitSecond, fromDate: result).second
         
         XCTAssertTrue((year == 2015), "Decode NSDate should return correct value")
         XCTAssertTrue((month == 8), "Decode NSDate should return correct value")

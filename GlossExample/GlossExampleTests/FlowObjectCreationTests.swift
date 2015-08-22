@@ -36,12 +36,7 @@ class FlowObjectCreationTests: XCTestCase {
         
         let testJSONPath: NSString = NSBundle(forClass: self.dynamicType).pathForResource("TestModel", ofType: "json")!
         let testJSONData: NSData = NSData(contentsOfFile: testJSONPath as String)!
-        
-        do {
-            try testJSON = NSJSONSerialization.JSONObjectWithData(testJSONData, options: NSJSONReadingOptions(rawValue: 0)) as? JSON
-        } catch {
-            print(error)
-        }
+        testJSON = NSJSONSerialization.JSONObjectWithData(testJSONData, options: NSJSONReadingOptions(rawValue: 0), error: nil) as? JSON
     }
     
     override func tearDown() {
