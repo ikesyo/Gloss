@@ -23,6 +23,7 @@
 // THE SOFTWARE.
 //
 
+import Gloss
 import UIKit
 
 class ViewController: UIViewController {
@@ -42,7 +43,7 @@ class ViewController: UIViewController {
             "language" : "Swift"
             ]
         
-        let repo = Repo(json: repoJSON)
+        let repo = Repo(json: repoJSON as! JSON)
         
         print(repo.repoId)
         print(repo.name)
