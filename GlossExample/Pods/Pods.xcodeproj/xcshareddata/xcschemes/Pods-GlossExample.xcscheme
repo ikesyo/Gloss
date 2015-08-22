@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "819B277F4FE4E5C7AF9A0F0C"
-               BuildableName = "Gloss.framework"
-               BlueprintName = "Pods-GlossExample-Gloss"
+               BlueprintIdentifier = "B3B6AFFD07AA0BD2C2C5BB00"
+               BuildableName = "Pods_GlossExample.framework"
+               BlueprintName = "Pods-GlossExample"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "819B277F4FE4E5C7AF9A0F0C"
-            BuildableName = "Gloss.framework"
-            BlueprintName = "Pods-GlossExample-Gloss"
+            BlueprintIdentifier = "B3B6AFFD07AA0BD2C2C5BB00"
+            BuildableName = "Pods_GlossExample.framework"
+            BlueprintName = "Pods-GlossExample"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "819B277F4FE4E5C7AF9A0F0C"
-            BuildableName = "Gloss.framework"
-            BlueprintName = "Pods-GlossExample-Gloss"
+            BlueprintIdentifier = "B3B6AFFD07AA0BD2C2C5BB00"
+            BuildableName = "Pods_GlossExample.framework"
+            BlueprintName = "Pods-GlossExample"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
