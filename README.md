@@ -196,7 +196,7 @@ This model now:
 See [On Not Using Gloss Operators](#on-not-using-gloss-operators) for how to express this model without the custom `~~>` operator.
  
 
-## Initializing Model Objects
+### Initializing Model Objects
 
 Instances of Gloss models are made by calling `init(json:)`.
 
@@ -212,7 +212,7 @@ let repoOwner = RepoOwner.init(json: repoOwnerJSON)
 
 ```
 
-## Translating Model Objects to JSON
+### Translating Model Objects to JSON
 
 The JSON representation of an object is retrieved as such:
 
